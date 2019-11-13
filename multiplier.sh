@@ -47,13 +47,13 @@ process_file() {
 				operating_costs="$(printf 'a=(%s)*2/3;scale=0;(a+.5)/1\n' \
 					"$cost" | bc -l)"
 				# Calculate $cost - $operating_costs, round to the closest
-				# integer, store result in $maintentance_costs.
-				maintentance_costs="$(printf 'a=(%s)-(%s);scale=0;(a+.5)/1\n' \
+				# integer, store result in $maintenance_costs.
+				maintenance_costs="$(printf 'a=(%s)-(%s);scale=0;(a+.5)/1\n' \
 					"$cost" "$operating_costs" | bc -l)"
 				# Print the original cost line, operating costs and maintenance costs with the original
 				# indentation.
-				printf '%s\n%s"operating costs" %i\n%s"maintentance costs" %i\n' \
-					"$line" "$space" "$operating_costs" "$space" "$maintentance_costs"
+				printf '%s\n%s"operating costs" %i\n%s"maintenance costs" %i\n' \
+					"$line" "$space" "$operating_costs" "$space" "$maintenance_costs"
 				# Skip the remainder of the while loop and continue with the
 				# next iteration.
 				continue;;
